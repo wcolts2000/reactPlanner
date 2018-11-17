@@ -39,10 +39,15 @@ class App extends Component {
     }));
   };
 
-  editEvent = e => {
+  deleteEvent = (date, key) => {
+    let copy = { ...this.state.days[date] };
+    delete copy[key];
+
     this.setState(prevState => ({
-      ...prevState,
-      [e.target]: [e.value]
+      days: {
+        ...prevState.days,
+        [date]: copy
+      }
     }));
   };
 
