@@ -24,8 +24,32 @@ class App extends Component {
       }
     }
   };
+
+  addOrEditEvent = (e, date, key) => {
+    if (!key) key = Date.now();
+
+    this.setState(prevState => ({
+      days: {
+        ...prevState.days,
+        [date]: {
+          ...prevState.days[date],
+          [key]: e
+        }
+      }
+    }));
+  };
+
+  editEvent = e => {
+    this.setState(prevState => ({
+      ...prevState,
+      [e.target]: [e.value]
+    }));
+  };
+
   render() {
-    return <div className="App">planner</div>;
+    console.log(this.state);
+
+    return <div className="App">Planner ...</div>;
   }
 }
 
