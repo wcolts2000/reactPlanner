@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import moment from "./momentRange";
+import Day from "./components/Day";
+// ONLY FOR DEBUGGING
+// window.moment = moment;
 
 class App extends Component {
   state = {
@@ -17,12 +21,13 @@ class App extends Component {
       },
       "20190116": {
         event1: {
-          title: "Plan a birthday party for Lidia",
+          title: "Plan a birthday party for Lidiia",
           time: "0:00",
           description: "Keep it a secret. dont reveal the plan"
         }
       }
-    }
+    },
+    currentMonth: "201811"
   };
 
   addOrEditEvent = (e, date, key) => {
@@ -51,10 +56,47 @@ class App extends Component {
     }));
   };
 
-  render() {
-    console.log(this.state);
+  nextMonth = () => {
+    this.setState(prevState => ({
+      currentMonth: moment(prevState.currentMonth, "YYYYMM")
+        .add(1, "months")
+        .format("YYYYMM")
+    }));
+  };
 
-    return <div className="App">Planner ...</div>;
+  prevMonth = () => {
+    this.setState(prevState => ({
+      currentMonth: moment(prevState.currentMonth, "YYYYMM")
+        .subtract(1, "months")
+        .format("YYYYMM")
+    }));
+  };
+
+  render() {
+    let dates = Array.from(
+      moment(this.state.currentMonth, "YYYYMM")
+        .range("month")
+        .by("days")
+    );
+    return (
+      <div className="App">
+        <h1>
+          {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
+        </h1>
+        <button onClick={this.prevMonth}>&larr;</button>
+        <button onClick={this.nextMonth}>&rarr;</button>
+
+        {dates.map(date => {
+          return (
+            <Day
+              key={date.format("YYYYMMDD")}
+              date={date}
+              events={this.state.days[date.format("YYYYMMDD")]}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
 
