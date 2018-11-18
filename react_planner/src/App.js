@@ -9,7 +9,7 @@ class App extends Component {
     days: {
       "20181117": {
         event1: {
-          title: "Study React",
+          title: "Study React ",
           time: "8:00",
           description: "Learn about state and props"
         },
@@ -83,8 +83,8 @@ class App extends Component {
         <h1>
           {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
         </h1>
-        <button onClick={this.prevMonth}>&larr;</button>
-        <button onClick={this.nextMonth}>&rarr;</button>
+        <button onClick={this.prevMonth}>&lt;</button>
+        <button onClick={this.nextMonth}>&gt;</button>
 
         {dates.map(date => {
           return (
