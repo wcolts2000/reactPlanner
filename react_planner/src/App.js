@@ -97,6 +97,8 @@ class App extends Component {
               key={date.format("YYYYMMDD")}
               date={date}
               events={this.state.days[date.format("YYYYMMDD")]}
+              addOrEditEvent={this.addOrEditEvent}
+              deleteEvent={this.deleteEvent}
             />
           );
         })}
