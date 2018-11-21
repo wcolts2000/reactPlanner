@@ -1,20 +1,23 @@
 import React from "react";
+import "./Form.css";
 
 function Form(props) {
   return (
     <form onSubmit={props.addOrEditEvent}>
-      <input
+      {/* <input
         type="text"
         className="add-edit-event"
         value={props.eventInput}
-        placeholder="Add/Edit Event..."
+        placeholder="Add an Event..."
         onChange={props.handleInputChange}
-      />
+      /> */}
       <button
+        className="add-edit-event"
         type="submit"
-        value={props.addEvent}
         onClick={props.addOrEditEvent}
-      />
+      >
+        Add&nbsp;an&nbsp;Event
+      </button>
     </form>
   );
 }

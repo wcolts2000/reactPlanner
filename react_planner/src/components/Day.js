@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 // import moment from "../momentRange";
 import "./Day.css";
 import Card from "./Card";
+import Form from "./Form";
 
 const Day = props => {
   return (
@@ -15,6 +16,10 @@ const Day = props => {
         events={props.events}
         addOrEditEvent={props.addOrEditEvent}
         deleteEvent={props.deleteEvent}
+      />
+      <Form
+        handleInputChange={props.handleInputChange}
+        addOrEditEvent={props.addOrEditEvent}
       />
     </div>
   );
