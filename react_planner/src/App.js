@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "./momentRange";
 import Day from "./components/Day";
+import "./App.css";
 // ONLY FOR DEBUGGING
 // window.moment = moment;
 
@@ -80,11 +81,15 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <h1>
+        <h1 className="month-header">
           {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
         </h1>
-        <button onClick={this.prevMonth}>&lt;</button>
-        <button onClick={this.nextMonth}>&gt;</button>
+        <button onClick={this.prevMonth} className="prev">
+          &lt;
+        </button>
+        <button onClick={this.nextMonth} className="next">
+          &gt;
+        </button>
 
         {dates.map(date => {
           return (

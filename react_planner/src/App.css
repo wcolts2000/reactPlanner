@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,700|Roboto");
+body,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Raleway", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-header {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 3rem;
+  border-bottom: 2px solid rgb(158, 158, 158);
+  position: relative;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 6%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(158, 158, 158);
+  font-size: 3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.prev:hover,
+.next:hover {
+  transform: translateY(-2px);
+}
+
+.prev:active,
+.next:active {
+  transform: translateY(-1px);
+}
+
+.prev {
+  left: 10%;
+}
+.next {
+  right: 10%;
+}
