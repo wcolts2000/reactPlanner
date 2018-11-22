@@ -1,21 +1,25 @@
-.event-card-row {
+.event-row {
   display: flex;
-  border-left: 1px solid #ccc;
-  margin: 1rem;
-  padding: 0 3rem;
-  flex-wrap: wrap;
 }
 
 .event-card {
   padding: 2.5rem;
   background: #eeeeee;
+  border: #0984e3 1px dashed;
   border-radius: 10px;
-  margin: 1rem 2rem;
+  margin: 2.5rem 2.5rem 2.5rem 0.5rem;
   width: 240px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  transition: all 0.3s ease-in;
+  box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: -2px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .event-card h2 {
@@ -28,11 +32,12 @@
 .time-label {
   background: #0984e3;
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 2px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-bottom: 1.5rem;
+  box-shadow: inset 0px 0px 30px 0px rgb(89, 0, 255);
 }
 
 .event-description {
@@ -51,15 +56,20 @@
 
 .event-card .fas:hover {
   color: #0984e3;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .event-card .far:hover {
   color: red;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .event-card .far:active,
 .event-card .fas:active {
   transform: translateY(-1px);
+}
+
+.event-card .far:focus,
+.event-card .fas:focus {
+  outline: none;
 }

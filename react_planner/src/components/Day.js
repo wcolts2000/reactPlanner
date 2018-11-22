@@ -12,15 +12,17 @@ const Day = props => {
         <p>{props.date.format("ddd, DD").split(", ")[0]}</p>
         <p>{props.date.format("ddd, DD").split(", ")[1]}</p>
       </div>
-      <Card
-        events={props.events}
-        addOrEditEvent={props.addOrEditEvent}
-        deleteEvent={props.deleteEvent}
-      />
-      <Form
-        handleInputChange={props.handleInputChange}
-        addOrEditEvent={props.addOrEditEvent}
-      />
+      <div className="event-row">
+        <Card
+          events={props.events}
+          addOrEditEvent={props.addOrEditEvent}
+          deleteEvent={props.deleteEvent}
+        />
+        <Form
+          handleInputChange={props.handleInputChange}
+          addOrEditEvent={props.addOrEditEvent}
+        />
+      </div>
     </div>
   );
 };

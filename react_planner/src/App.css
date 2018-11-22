@@ -23,31 +23,36 @@ h6 {
   flex-direction: column;
 }
 
-.month-header {
+header {
+  display: flex;
   width: 100%;
   text-align: center;
+  justify-content: space-around;
+  border-bottom: 2px solid rgb(158, 158, 158);
+}
+
+.month-header {
   font-size: 3rem;
   font-weight: 300;
   padding: 3rem;
-  border-bottom: 2px solid rgb(158, 158, 158);
-  position: relative;
+  color: #0984e3;
 }
 
 .prev,
 .next {
-  position: absolute;
-  top: 6%;
   background: transparent;
   border: none;
   cursor: pointer;
   color: rgb(158, 158, 158);
   font-size: 3rem;
   transition: all 0.3s ease-in-out;
+  display: inline-block;
 }
 
 .prev:hover,
 .next:hover {
   transform: translateY(-2px);
+  color: #0984e3;
 }
 
 .prev:active,

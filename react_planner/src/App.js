@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "./momentRange";
 import Day from "./components/Day";
 import "./App.css";
+import Modal from "./components/Modal";
 // ONLY FOR DEBUGGING
 // window.moment = moment;
 
@@ -18,6 +19,16 @@ class App extends Component {
           title: "Learn Redux",
           time: "9:00",
           description: "Learn about reducers, action creators and more."
+        },
+        event3: {
+          title: "try gatsby",
+          time: "11:00",
+          description: "Make a markdown schema and blog page."
+        },
+        event4: {
+          title: "Learn redact router",
+          time: "5:00",
+          description: "Get the instagram clone routing individual cards."
         }
       },
       "20190116": {
@@ -31,7 +42,7 @@ class App extends Component {
     currentMonth: "201811"
   };
 
-  addOrEditEvent = (e, date, key) => {
+  addOrEditEvent = (event, date, key) => {
     if (!key) key = Date.now();
 
     this.setState(prevState => ({
@@ -39,7 +50,7 @@ class App extends Component {
         ...prevState.days,
         [date]: {
           ...prevState.days[date],
-          [key]: e
+          [key]: event
         }
       }
     }));
@@ -81,15 +92,21 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <h1 className="month-header">
-          {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
-        </h1>
-        <button onClick={this.prevMonth} className="prev">
-          &lt;
-        </button>
-        <button onClick={this.nextMonth} className="next">
-          &gt;
-        </button>
+        <header>
+          <button
+            onClick={this.prevMonth}
+            className="prev"
+            onSubmit={this.addOrEditEvent}
+          >
+            &lt;
+          </button>
+          <h1 className="month-header">
+            {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
+          </h1>
+          <button onClick={this.nextMonth} className="next">
+            &gt;
+          </button>
+        </header>
 
         {dates.map(date => {
           return (
@@ -102,6 +119,10 @@ class App extends Component {
             />
           );
         })}
+        <Modal
+          handleInputChange={this.handleInputChange}
+          addOrEditEvent={this.addOrEditEvent}
+        />
       </div>
     );
   }
