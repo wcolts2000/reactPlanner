@@ -107,22 +107,23 @@ class App extends Component {
             &gt;
           </button>
         </header>
-
-        {dates.map(date => {
-          return (
-            <Day
-              key={date.format("YYYYMMDD")}
-              date={date}
-              events={this.state.days[date.format("YYYYMMDD")]}
-              addOrEditEvent={this.addOrEditEvent}
-              deleteEvent={this.deleteEvent}
-            />
-          );
-        })}
-        <Modal
-          handleInputChange={this.handleInputChange}
-          addOrEditEvent={this.addOrEditEvent}
-        />
+        <div className="days-rows-container">
+          {dates.map(date => {
+            return (
+              <Day
+                key={date.format("YYYYMMDD")}
+                date={date}
+                events={this.state.days[date.format("YYYYMMDD")]}
+                addOrEditEvent={this.addOrEditEvent}
+                deleteEvent={this.deleteEvent}
+              />
+            );
+          })}
+          <Modal
+            handleInputChange={this.handleInputChange}
+            addOrEditEvent={this.addOrEditEvent}
+          />
+        </div>
       </div>
     );
   }
