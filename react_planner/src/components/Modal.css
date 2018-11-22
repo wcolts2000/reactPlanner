@@ -2,10 +2,11 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 10, 29, 0.9);
-  display: none;
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 100;
+  display: flex;
 }
 
 .modal-box {
@@ -13,6 +14,8 @@
   flex-direction: column;
   text-align: center;
   min-width: 50%;
+  width: 500px;
+  margin: 0 auto;
   min-height: 50%;
   justify-content: space-around;
   background: #59a0d6;

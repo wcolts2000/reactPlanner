@@ -41,8 +41,15 @@ class App extends Component {
         }
       }
     },
-    currentMonth: "201811"
+    currentMonth: "201811",
+    modal: false
   };
+
+  // componentDidUpdate(prevState) {
+  //   if(prevState.modal !== this.state.modal) {
+
+  //   }
+  // }
 
   addOrEditEvent = (event, date, key) => {
     if (!key) key = Date.now();
@@ -54,7 +61,8 @@ class App extends Component {
           ...prevState.days[date],
           [key]: event
         }
-      }
+      },
+      modal: !prevState.modal
     }));
   };
 
@@ -101,22 +109,23 @@ class App extends Component {
           addOrEditEvent={this.addOrEditEvent}
         />
         <div className="days-rows-container">
-          {dates.map(date => {
-            return (
-              <Day
-                key={date.format("YYYYMMDD")}
-                date={date}
-                events={this.state.days[date.format("YYYYMMDD")]}
-                addOrEditEvent={this.addOrEditEvent}
-                deleteEvent={this.deleteEvent}
-              />
-            );
-          })}
+          {dates.map(date => (
+            <Day
+              key={date.format("YYYYMMDD")}
+              date={date}
+              events={this.state.days[date.format("YYYYMMDD")]}
+              addOrEditEvent={this.addOrEditEvent}
+              deleteEvent={this.deleteEvent}
+            />
+          ))}
+        </div>
+        {this.state.modal ? (
           <Modal
             handleInputChange={this.handleInputChange}
             addOrEditEvent={this.addOrEditEvent}
+            modal={this.state.modal}
           />
-        </div>
+        ) : null}
       </div>
     );
   }
