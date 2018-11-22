@@ -56,17 +56,10 @@
 
 .event-card .fas:hover {
   color: #0984e3;
-  transform: translateY(-2px);
 }
 
 .event-card .far:hover {
   color: red;
-  transform: translateY(-2px);
-}
-
-.event-card .far:active,
-.event-card .fas:active {
-  transform: translateY(-1px);
 }
 
 .event-card .far:focus,
