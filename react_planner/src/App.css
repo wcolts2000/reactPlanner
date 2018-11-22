@@ -8,6 +8,10 @@ body,
   font-family: "Raleway", sans-serif;
 }
 
+body {
+  background: #bcddf7;
+}
+
 h1,
 h2,
 h3,
@@ -25,6 +29,7 @@ h6 {
 
 .days-rows-container {
   margin-top: 100px;
+  color: #0984e3;
 }
 
 header {
@@ -32,25 +37,33 @@ header {
   width: 100%;
   text-align: center;
   justify-content: space-between;
-  border-bottom: 2px solid rgb(158, 158, 158);
+  border-bottom: 2px solid #0984e3;
   position: fixed;
   box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.1);
-  background: white;
+  background-image: linear-gradient(to bottom right, #001bb1, #82c9ff);
+  z-index: 10;
 }
 
 .month-header {
   font-size: 3rem;
   font-weight: 300;
   padding: 3rem;
-  color: #0984e3;
+  color: #eee;
+  letter-spacing: 2px;
+  text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.3), -2px 3px 6px rgba(0, 0, 0, 0.2),
+    -3px 4px 7px rgba(0, 0, 0, 0.1), -4px 5px 8px rgba(0, 0, 0, 0.1),
+    -6px 6px 9px rgba(0, 0, 0, 0.1);
 }
 
 .prev,
 .next {
   background: transparent;
+  text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.3), -2px 3px 6px rgba(0, 0, 0, 0.2),
+    -3px 4px 7px rgba(0, 0, 0, 0.1), -4px 5px 8px rgba(0, 0, 0, 0.1),
+    -6px 6px 9px rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
-  color: rgb(158, 158, 158);
+  color: #eee;
   font-size: 3rem;
   transition: all 0.3s ease-in-out;
   display: inline-block;
@@ -60,13 +73,7 @@ header {
 
 .prev:hover,
 .next:hover {
-  transform: translateY(-2px);
   color: #0984e3;
-}
-
-.prev:active,
-.next:active {
-  transform: translateY(-1px);
 }
 
 .prev {
