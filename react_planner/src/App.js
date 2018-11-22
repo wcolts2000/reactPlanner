@@ -45,13 +45,10 @@ class App extends Component {
     modal: false
   };
 
-  // componentDidUpdate(prevState) {
-  //   if(prevState.modal !== this.state.modal) {
-
-  //   }
-  // }
-
   addOrEditEvent = (event, date, key) => {
+    console.log(event);
+
+    event.preventDefault();
     if (!key) key = Date.now();
 
     this.setState(prevState => ({
@@ -92,6 +89,14 @@ class App extends Component {
         .subtract(1, "months")
         .format("YYYYMM")
     }));
+  };
+
+  handleInputChange = e => {
+    console.log(e.target.name);
+
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
   render() {

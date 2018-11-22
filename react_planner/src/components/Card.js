@@ -16,12 +16,10 @@ function Card(props) {
               <div>
                 <button
                   className="fas fa-edit"
-                  value=""
                   onClick={props.addOrEditEvent}
                 />
                 <button
                   className="far fa-trash-alt"
-                  value=""
                   onClick={props.deleteEvent}
                 />
               </div>
