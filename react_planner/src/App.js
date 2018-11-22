@@ -3,6 +3,8 @@ import moment from "./momentRange";
 import Day from "./components/Day";
 import "./App.css";
 import Modal from "./components/Modal";
+import Header from "./components/Header";
+
 // ONLY FOR DEBUGGING
 // window.moment = moment;
 
@@ -92,21 +94,12 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <header>
-          <button
-            onClick={this.prevMonth}
-            className="prev"
-            onSubmit={this.addOrEditEvent}
-          >
-            &lt;
-          </button>
-          <h1 className="month-header">
-            {moment(this.state.currentMonth, "YYYYMM").format("MMMM, YYYY")}
-          </h1>
-          <button onClick={this.nextMonth} className="next">
-            &gt;
-          </button>
-        </header>
+        <Header
+          currentMonth={this.state.currentMonth}
+          nextMonth={this.nextMonth}
+          prevMonth={this.prevMonth}
+          addOrEditEvent={this.addOrEditEvent}
+        />
         <div className="days-rows-container">
           {dates.map(date => {
             return (
